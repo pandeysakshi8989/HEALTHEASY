@@ -1,13 +1,13 @@
 <!----php form start-->
 <?php 
 //connect to database
-include '_dbconnect.php';
+include '_dbconnect.html';
 
 //delete starts
 if(isset($_GET['delete'])){
   $snoDelete=$_GET['delete'];
   //delete
-$sql="DELETE FROM `doctor` WHERE `Serial`='$snoDelete'";
+$sql="DELETE FROM `price` WHERE `Serial`='$snoDelete'";
 $result=mysqli_query($conn,$sql);
 if($result){
   echo  "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
    
     $snoEdit=$_POST['snoEdit']; 
     $Name=$_POST['NameEdit'];
-  $Profession=$_POST['ProfessionEdit'];
-  $Day=$_POST['DayEdit'];
+  $Type=$_POST['TypeEdit'];
+  $Cost=$_POST['CostEdit'];
 
-  $sql="UPDATE `doctor` SET `Name` = '$Name', `Profession` = '$Profession',`Day` = '$Day' WHERE `doctor`.`Serial` = '$snoEdit'";
+  $sql="UPDATE `price` SET `Name` = '$Name', `Type` = '$Type',`Cost` = '$Cost' WHERE `price`.`Serial` = '$snoEdit'";
 $result=mysqli_query($conn,$sql);
 
 //check for update results
@@ -63,11 +63,11 @@ echo "<br>";
   //insert starts
   else{
     $Name=$_POST['Name'];
-    $Profession=$_POST['Profession'];
-    $Day=$_POST['Day'];
+    $Type=$_POST['Type'];
+    $Cost=$_POST['Cost'];
 
 //insert to databse
-$sql="INSERT INTO `doctor` (`Name`, `Profession`,`Day`) VALUES ('$Name', '$Profession', '$Day')";
+$sql="INSERT INTO `price` (`Name`, `Type`,`Cost`) VALUES ('$Name', '$Type', '$Cost')";
 $result=mysqli_query($conn,$sql);
 
 //check for insert results
@@ -97,7 +97,7 @@ echo "<br>";
 <html lang="en">
   <head>
   <meta charset="utf-8">
-    <title>Admin-Doctor</title>
+    <title>Admin-Price</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Templates" name="keywords">
     <meta content="Templates" name="description">
@@ -136,21 +136,21 @@ echo "<br>";
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form  action="doctor.php" method="post">
+      <form  action="cost.html" method="post">
         <input type="hidden" name="snoEdit" id="snoEdit">
             <div class=" form-group">
               <label for="NameEdit" class="form-label">Name Edit</label>
               <input type="text" class="form-control" name="NameEdit" id="NameEdit" aria-describedby="NameEdit">
             </div>
             <div class=" form-group">
-              <label for="ProfessionEdit" class="form-label">Profession Edit</label>
-              <input type="text" class="form-control" name="ProfessionEdit" id="ProfessionEdit" aria-describedby="ProfessionEdit">
+              <label for="TypeEdit" class="form-label">Type Edit</label>
+              <input type="text" class="form-control" name="TypeEdit" id="TypeEdit" aria-describedby="TypeEdit">
             </div>
             <div class=" form-group">
-              <label for="DayEdit" class="form-label">Day Edit</label>
-              <input type="text" class="form-control" name="DayEdit" id="DayEdit" aria-describedby="DayEdit">
+              <label for="CostEdit" class="form-label">Cost Edit</label>
+              <input type="text" class="form-control" name="CostEdit" id="CostEdit" aria-describedby="CostEdit">
             </div>
-            <button type="submit" class="btn btn-primary">Update Doctor</button>
+            <button type="submit" class="btn btn-primary">Update Price</button>
           </form>
       </div>
       <div class="modal-footer">
@@ -166,7 +166,7 @@ echo "<br>";
     <nav
       class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
     >
-      <a href="index.php" class="navbar-brand p-0">
+      <a href="index.html" class="navbar-brand p-0">
         <h3 class="m-0 text-primary">
             <i class="fa fa-plus-square"></i>
            HealthEasy
@@ -188,14 +188,14 @@ echo "<br>";
     <div class="container align-item-center">admin
    </a>  </div>
 
-   <a href="adminlogin.php" class="nav-item nav-link">Login</a>
-          <a href="index.php" class="nav-item nav-link">Home</a>
+   <a href="adminlogin.html" class="nav-item nav-link">Login</a>
+          <a href="index.html" class="nav-item nav-link">Home</a>
           <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Data Tables</a>
             <div class="dropdown-menu m-0">
-                <a href="doctor.php" class="dropdown-item active">Doctor</a>
-                <a href="staff.php" class="dropdown-item">Staff</a>
-                <a href="#" class="dropdown-item">Price</a>
+                <a href="doctor.html" class="dropdown-item">Doctor</a>
+                <a href="staff.html" class="dropdown-item">Staff</a>
+                <a href="cost.html" class="dropdown-item active">Price</a>
                 <a href="#" class="dropdown-item">User Login</a>
                 <a href="#" class="dropdown-item">Appointment</a>
                 <a href="#" class="dropdown-item">Contact</a>
@@ -205,12 +205,12 @@ echo "<br>";
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Web Pages</a>
             <div class="dropdown-menu m-0">
-                <a href="appointment.php" class="dropdown-item">Appointment</a>
-                <a href="sevice.php" class="dropdown-item">Services</a>
-                <a href="contact.php" class="dropdown-item">Contact</a>
-                <a href="offer.php" class="dropdown-item">Latest Offers</a>
-                <a href="testimonial.php" class="dropdown-item">Testimonial</a>
-                <a href="pricing.php" class="dropdown-item">Pricing</a>
+                <a href="appointment.html" class="dropdown-item">Appointment</a>
+                <a href="sevice.html" class="dropdown-item">Services</a>
+                <a href="contact.html" class="dropdown-item">Contact</a>
+                <a href="offer.html" class="dropdown-item">Latest Offers</a>
+                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                <a href="pricing.html" class="dropdown-item">Pricing</a>
             </div>
         </div>
         
@@ -224,7 +224,7 @@ echo "<br>";
         >
           <i class="fa fa-search"></i>
         </button>
-        <a href="logout.php" class="btn btn-primary py-2 px-4 ms-3"
+        <a href="logout.html" class="btn btn-primary py-2 px-4 ms-3"
           >LogOut</a
         >
       </div>
@@ -233,45 +233,47 @@ echo "<br>";
 
       <!--form start-->
       <div class="container bg-outline-dark">
-        <form  action="doctor.php" method="post">
+        <form  action="cost.html" method="post">
         <div class="mb-3 mt-3">
-                <h2>Add a Doctor</h2>
+                <h2>Add a Price</h2>
               <label for="Name" class="form-label">Name</label>
               <input type="text" class="form-control" name="Name" id="Name" aria-describedby="Name">
 </div>
 <div class="mb-3 ">
-              <label for="Profession" class="form-label">Profession</label>
-              <input type="text" class="form-control" name="Profession" id="Profession" aria-describedby="Profession">
+              <label for="Type" class="form-label">Type</label>
+              <input type="text" class="form-control" name="Type" id="Type" aria-describedby="Type">
 </div>
 <div class="mb-3 ">
-              <label for="Day" class="form-label">Day</label>
-              <input type="text" class="form-control" name="Day" id="Day" aria-describedby="Day">
+              <label for="Cost" class="form-label">Cost</label>
+              <input type="text" class="form-control" name="Cost" id="Cost" aria-describedby="Cost">
 </div>    
-            <button type="submit" class="btn btn-primary">Add Doctor</button>
+            <button type="submit" class="btn btn-primary">Add Price</button>
           </form>
           </div>
       <!--form end-->
 
-      <!--table start-->
-      <div class="container my-4">
-      <table class="table table-primary table-striped" id="myTable">
+        <!--table start-->
+        <div class="container my-4">
+        <h3>Price</h3>
+      <table class="table table-primary table-striped" id="CostTable">
         <thead>
           <tr>
             <th scope="col">S.No.</th>
             <th scope="col">Name</th>
-            <th scope="col">Profession</th>
-            <th scope="col">Day</th>
+            <th scope="col">Type</th>
+            <th scope="col">Cost</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
        
         <tbody>
+
 <!---php script table-->
          <?php
          //connect to database
-include '_dbconnect.php';
+include '_dbconnect.html';
 //fetch data
-$sql="SELECT * FROM `doctor`";
+$sql="SELECT * FROM `price`";
 $result=mysqli_query($conn,$sql);
 
 $sno=0;
@@ -281,8 +283,8 @@ while($row=mysqli_fetch_assoc($result)){
   echo "<tr>
   <th scope='row'>".$sno."</th>
   <td>".$row['Name']."</td>
-  <td>".$row['Profession']."</td>
-  <td>".$row['Day']."</td>
+  <td>".$row['Type']."</td>
+  <td>".$row['Cost']."</td>
   <td> <button class='edit btn btn-sm btn-primary' id=".$row['Serial'].">Edit</button>
   <button class='delete btn btn-sm btn-primary' id=d".$row['Serial'].">Delete</button>
 </tr>";
@@ -293,9 +295,7 @@ while($row=mysqli_fetch_assoc($result)){
        
       </table>
     </div>
-      <hr>
-
-      <!---table end-->
+    
 
      <!--Script-->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
@@ -309,7 +309,7 @@ while($row=mysqli_fetch_assoc($result)){
     
     <script>
       $(document).ready( function (){
-    let table = new DataTable('#myTable')});
+    let table = new DataTable('#CostTable')});
     </script>
     <script>
     edits=document.getElementsByClassName('edit');
@@ -318,12 +318,12 @@ while($row=mysqli_fetch_assoc($result)){
         console.log("edit",);
         tr=e.target.parentNode.parentNode;
         Name=tr.getElementsByTagName("td")[0].innerText;
-         Profession=tr.getElementsByTagName("td")[1].innerText;
-         Day=tr.getElementsByTagName("td")[2].innerText;
-         console.log(Name,Profession,Day);
+         Type=tr.getElementsByTagName("td")[1].innerText;
+         Cost=tr.getElementsByTagName("td")[2].innerText;
+         console.log(Name,Type,Cost);
          NameEdit.value=Name;
-         ProfessionEdit.value=Profession;
-         DayEdit.value=Day;
+         TypeEdit.value=Type;
+         CostEdit.value=Cost;
          snoEdit.value=e.target.id;
          console.log(e.target.id);
          $('#editModal').modal('toggle');
@@ -336,7 +336,7 @@ while($row=mysqli_fetch_assoc($result)){
         snoDelete=e.target.id.substr(1,);
          if(confirm("Press a button!")){
           console.log("yes");
-          window.location=`doctor.php?delete=${snoDelete}`;
+          window.location=`cost.html?delete=${snoDelete}`;
          }
          else{
           console.log("no");

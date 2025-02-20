@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
 {
-    header("location: login.php");
+    header("location: login.html");
     exit;
 }
 ?>
@@ -11,7 +11,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
 <?php 
 //server
 if ($_SERVER['REQUEST_METHOD']=='POST'){
-    include '_dbconnect.php';
+    include '_dbconnect.html';
     
     $email=$_POST['email'];
     $service=$_POST['service'];
@@ -181,7 +181,7 @@ echo "<br>";
     <nav
       class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
     >
-      <a href="index.php" class="navbar-brand p-0">
+      <a href="index.html" class="navbar-brand p-0">
         <h3 class="m-0 text-primary">
             <i class="fa fa-plus-square"></i>
            HealthEasy
@@ -218,9 +218,9 @@ echo "<br>";
                 <a href="#" class="dropdown-item">Improvement</a>
             </div>
         </div>
-        <a href="index.php" class="nav-item nav-link">Home</a>
-          <a href="contact.php" class="nav-item nav-link">Contact</a>
-          <a href="appointment.php" class="nav-item nav-link">Appointment</a>
+        <a href="index.html" class="nav-item nav-link">Home</a>
+          <a href="contact.html" class="nav-item nav-link">Contact</a>
+          <a href="appointment.html" class="nav-item nav-link">Appointment</a>
         </div>
         <button
           type="button"
@@ -230,7 +230,7 @@ echo "<br>";
         >
           <i class="fa fa-search"></i>
         </button>
-        <a href="index.php" class="btn btn-primary py-2 px-4 ms-3"
+        <a href="index.html" class="btn btn-primary py-2 px-4 ms-3"
           >LogOut</a
         >
       </div>
@@ -387,7 +387,7 @@ echo "<br>";
 
       <div class="col-xl-4 col-lg-6 wow slideInUp" data-wow-delay="0.3s">
         <h3>Feedback form</h3>
-      <form action="dashboard.php" method="post" >
+      <form action="dashboard.html" method="post" >
         <div class="row g-3">
           <div class="col-12">
             <input
@@ -436,7 +436,7 @@ echo "<br>";
     
       <div class="col-xl-4 col-lg-6 wow slideInUp" data-wow-delay="0.3s">
         <h3 class="text-center ">File Upload</h3>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="upload.html" method="post" enctype="multipart/form-data">
             Select file to upload:
 
         <div class="row g-3">
@@ -479,7 +479,7 @@ echo "<br>";
 </div>
         </div>
       </form>
-      <a href="schedule.php" class="btn btn-primary py-2 px-4 mt-2"
+      <a href="schedule.html" class="btn btn-primary py-2 px-4 mt-2"
           >Schedule & Price</a
         >
      </div>       
@@ -600,7 +600,7 @@ echo "<br>";
     <div class="row justify-content-evenly text-white">
     <div class="col-3">
         <a
-        href="login.php"
+        href="login.html"
         class="btn btn-primary py-3 px-5 mt-4 wow zoomIn"
         data-wow-delay="0.6s"
         >Login</a
@@ -609,7 +609,7 @@ echo "<br>";
     </div>
     <div class="col-3">
         <a
-        href="signup.php"
+        href="signup.html"
         class="btn btn-primary py-3 px-5 mt-4 wow zoomIn"
         data-wow-delay="0.6s"
         >SignUp</a
@@ -619,7 +619,7 @@ echo "<br>";
 
     <div class="col-3">
         <a
-        href="adminlogin.php"
+        href="adminlogin.html"
         class="btn btn-primary py-3 px-5 mt-4 wow zoomIn"
         data-wow-delay="0.6s"
         >Admin</a
@@ -637,21 +637,21 @@ echo "<br>";
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Quick Links</h3>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="about.php"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="service.php"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="offer.php"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Offers</a>
-                        <a class="text-light" href="contact.php"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                        <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="offer.html"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Offers</a>
+                        <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Popular Links</h3>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-light mb-2" href="index.php"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="about.php"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="service.php"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="offer.php"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Offers</a>
-                        <a class="text-light" href="contact.php"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                        <a class="text-light mb-2" href="index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="service.html"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="offer.html"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Offers</a>
+                        <a class="text-light" href="contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -676,10 +676,10 @@ echo "<br>";
         <div class="container">
             <div class="row g-0">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="design.php">www.healtheasy.com</a>. All Rights Reserved.</p>
+                    <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="design.html">www.healtheasy.com</a>. All Rights Reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Designed by <a class="text-white border-bottom" href="design.php">HealthEasy</a></p>
+                    <p class="mb-0">Designed by <a class="text-white border-bottom" href="design.html">HealthEasy</a></p>
                 </div>
             </div>
         </div>

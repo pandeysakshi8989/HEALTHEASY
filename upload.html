@@ -1,7 +1,7 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD']=='POST'){
-  include '_dbconnect.php';
+  include '_dbconnect.html';
   $email=$_POST['email'];
   $message=$_POST['message'];
   $type=$_POST['type'];

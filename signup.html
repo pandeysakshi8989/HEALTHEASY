@@ -1,6 +1,6 @@
 <?php 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    include '_dbconnect.php';
+    include '_dbconnect.html';
 
     $userName=$_POST["userName"];
     $password=$_POST["password"];
@@ -54,10 +54,10 @@ else {
   </head>
   <body>
 
-    <?php require '_nav.php' ?>
+    <?php require '_nav.html' ?>
     <div class="container col-6 my-5">
         <h1 class="text-center">SignUp to our website</h1>
-        <form action="signup.php" method="post">
+        <form action="signup.html" method="post">
   <div class="mb-3">
     <label for="userName" class="form-label">User Name</label>
     <input type="text" class="form-control" name="userName" id="userName" aria-describedby="text">
